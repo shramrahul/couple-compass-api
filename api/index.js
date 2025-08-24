@@ -1,7 +1,7 @@
 const serverless = require("serverless-http");
 const express = require("express");
-const app = express();
 
+const app = express();
 app.use(express.json());
 
 // Import your routes
@@ -9,8 +9,7 @@ const conversationRoutes = require("../routes/conversationRoutes");
 const healthRoutes = require("../routes/healthRoutes");
 
 app.use("/conversations", conversationRoutes);
-app.use("/health", healthRoutes);   // Health check
+app.use("/health", healthRoutes);
 
-// Export app as serverless handler
-module.exports = app;
-module.exports.handler = serverless(app);
+// Export handler for Vercel
+module.exports = serverless(app);
