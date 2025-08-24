@@ -11,3 +11,4 @@ app.use("/health", healthRoutes);   // ✅ New health check route
 
 // Export app as serverless handler
 module.exports = serverless(app);
+module.exports.handler = serverless(app);
